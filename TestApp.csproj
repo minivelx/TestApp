@@ -42,14 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IEjercicio.cs" />
+    <Compile Include="Ejercicio.cs" />
     <Compile Include="Miscelanea\Ejercicio1.cs" />
+    <Compile Include="Miscelanea\Ejercicio2.cs" />
+    <Compile Include="Miscelanea\Ejercicio3.cs" />
+    <Compile Include="Miscelanea\Ejercicio4.cs" />
     <Compile Include="Miscelanea\Logica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Numeros.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

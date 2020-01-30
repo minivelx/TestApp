@@ -1,23 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestApp.Miscelanea
 {
     public class Logica
     {
-        public static List<int> CalcularMultiplosDe4(int N)
+        //Ejercicio 1
+        public static IEnumerable<int> CalcularMultiplosDe4(int N)
         {
-            var lstResult = new List<int>();
-
             for(int i = 4; i <=N; i+=4 )
             {
-                lstResult.Add(i);
+                yield return (i);
             }
+        }
 
-            return lstResult;
+        //Ejercicio 2
+        public static decimal ConvertirMetrosAPies(decimal valor)
+        {
+            return valor * 3.28M;
+        }
+
+        public static decimal ConvertirMetrosAPulgadas(decimal valor)
+        {
+            return valor * 39.37M;
+        }
+
+        //Ejercicio 3
+        public static int ObtenerSumaCuadrados()
+        {
+            IEnumerable<int> cuadrados = Enumerable.Range(1, 100).Select(x => x * x);
+            return cuadrados.Sum(x=> x);
+        }
+
+        //Ejercicio 4
+        public static int ObtenerSumaParesYPrimos(List<int> lstNumeros)
+        {
+            throw new NotImplementedException();
         }
     }
 }
