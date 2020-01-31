@@ -9,6 +9,6 @@ namespace TestApp.EstructuraDatos
     public class Trasaccion
     {
         public decimal valor { get; set; }
-        public Trasaccion tSiguiente { get; set; }
+        public Trasaccion tAnterior { get; set; }
     }
 }

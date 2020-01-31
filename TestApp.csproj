@@ -42,10 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ejercicio.cs" />
-    <Compile Include="EstructuraDatos\Estructura1.cs" />
-    <Compile Include="EstructuraDatos\Pila.cs" />
-    <Compile Include="EstructuraDatos\Trasaccion.cs" />
+    <Compile Include="EstructuraDatos\ListaEnlazada\Cola.cs" />
+    <Compile Include="EstructuraDatos\ListaEnlazada\Persona.cs" />
+    <Compile Include="Miscelanea\Ejercicio.cs" />
+    <Compile Include="EstructuraDatos\Pila\Pila.cs" />
+    <Compile Include="EstructuraDatos\Pila\Trasaccion.cs" />
     <Compile Include="Miscelanea\Ejercicio1.cs" />
     <Compile Include="Miscelanea\Ejercicio2.cs" />
     <Compile Include="Miscelanea\Ejercicio3.cs" />
@@ -61,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Numeros.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EstructuraDatos\ArbolBinario\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
