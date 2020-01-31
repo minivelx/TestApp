@@ -29,14 +29,36 @@ namespace TestApp.Miscelanea
         //Ejercicio 3
         public static int ObtenerSumaCuadrados()
         {
-            IEnumerable<int> cuadrados = Enumerable.Range(1, 100).Select(x => x * x);
+            var cuadrados = Enumerable.Range(1, 100).Select(x => x * x);
             return cuadrados.Sum(x=> x);
         }
 
         //Ejercicio 4
         public static int ObtenerSumaParesYPrimos(List<int> lstNumeros)
         {
-            throw new NotImplementedException();
+            var numeros = lstNumeros.Where(x => x % 2 == 0 || EsPrimo(x));
+            return numeros.Sum(x=> x);
         }
+
+        private static bool EsPrimo(int valor)
+        {            
+            for (int divisor = 2; divisor < valor; divisor ++)
+            {
+                if (valor % divisor == 0) return false;               
+            }
+            return valor == 1 ? false : true;
+        }
+
+        //Ejercicio 5
+
+
+        //Ejercicio 6
+        public static int CalcularValorSerieFibonacci(int n)
+        {
+            if (n == 0 || n == 1) return 1;
+
+            return (CalcularValorSerieFibonacci(n - 1) + CalcularValorSerieFibonacci(n - 2));
+        }
+
     }
 }

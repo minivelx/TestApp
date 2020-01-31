@@ -13,11 +13,12 @@ namespace TestApp
 
                 while (opc != "8")
                 {
-
                     Console.WriteLine(Ejercicio1.enunciado);
                     Console.WriteLine(Ejercicio2.enunciado);
                     Console.WriteLine(Ejercicio3.enunciado);
                     Console.WriteLine(Ejercicio4.enunciado);
+                    Console.WriteLine(Ejercicio5.enunciado);
+                    Console.WriteLine(Ejercicio6.enunciado);
                     Console.WriteLine("8. Salir");
                     Console.Write("opción: ");
 
@@ -36,6 +37,12 @@ namespace TestApp
                             break;
                         case "4":
                             EjecutarEjercicio(new Ejercicio4());
+                            break;
+                        case "5":
+                            EjecutarEjercicio(new Ejercicio5());
+                            break;
+                        case "6":
+                            EjecutarEjercicio(new Ejercicio6());
                             break;
 
                         default: break;

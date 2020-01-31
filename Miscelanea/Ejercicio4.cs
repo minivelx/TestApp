@@ -13,7 +13,7 @@ namespace TestApp.Miscelanea
         public override void SolicitarParametros()
         {
             string ruta = Path.Combine(Environment.CurrentDirectory, "Numeros.txt");
-            string text = File.ReadAllText(ruta);
+            string text = File.ReadAllText(ruta)?.Trim();
             lstNumeros = text.Split(' ').Select(x=> int.Parse(x)).ToList();
         }
 

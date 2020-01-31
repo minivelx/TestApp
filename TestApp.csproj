@@ -43,10 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ejercicio.cs" />
+    <Compile Include="EstructuraDatos\Estructura1.cs" />
+    <Compile Include="EstructuraDatos\Pila.cs" />
+    <Compile Include="EstructuraDatos\Trasaccion.cs" />
     <Compile Include="Miscelanea\Ejercicio1.cs" />
     <Compile Include="Miscelanea\Ejercicio2.cs" />
     <Compile Include="Miscelanea\Ejercicio3.cs" />
     <Compile Include="Miscelanea\Ejercicio4.cs" />
+    <Compile Include="Miscelanea\Ejercicio5.cs" />
+    <Compile Include="Miscelanea\Ejercicio6.cs" />
     <Compile Include="Miscelanea\Logica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
