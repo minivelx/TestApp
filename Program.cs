@@ -1,7 +1,11 @@
 ﻿using System;
+using TestApp.Agrupacion;
 using TestApp.EstructuraDatos;
+using TestApp.EstructuraDatos.ArbolBinario;
 using TestApp.EstructuraDatos.ListaEnlazada;
 using TestApp.Miscelanea;
+using TestApp.Postfix;
+using TestApp.Token;
 
 namespace TestApp
 {
@@ -22,8 +26,12 @@ namespace TestApp
                     Console.WriteLine(Ejercicio4.enunciado);
                     Console.WriteLine(Ejercicio5.enunciado);
                     Console.WriteLine(Ejercicio6.enunciado);
-                    Console.WriteLine("7 .Pila");
-                    Console.WriteLine("8 .Banco");
+                    Console.WriteLine("7. Pila de Ventas");
+                    Console.WriteLine("8. Cola del Banco");
+                    Console.WriteLine("9. Árbol Binario");
+                    Console.WriteLine("10. Evaluación del Token");
+                    Console.WriteLine("11. Expresión Postfija");
+                    Console.WriteLine("12. Agrupación");
                     Console.WriteLine("x. Salir");
                     Console.Write("opción: ");
 
@@ -55,6 +63,20 @@ namespace TestApp
                         case "8":
                             Banco();
                             break;
+                        case "9":
+                            Arbol();
+                            break;
+                        case "10":
+                            var validador = new ValidadorToken();
+                            validador.CargarCadena();
+                            break;
+                        case "11":
+                            var postfix = new CPostfix();
+                            postfix.EvaluarExpresion();
+                            break;
+                        case "12":
+                            Agrupacion();
+                            break;
 
                         default: break;
                     }
@@ -67,7 +89,7 @@ namespace TestApp
                 Console.WriteLine(string.Format("Error! {0}", ErrorMsg));
                 Console.ReadLine();
             }
-        }
+        }        
 
         private static void EjecutarEjercicio(Ejercicio IEjercicio)
         {
@@ -155,6 +177,73 @@ namespace TestApp
                 }
                 Console.Clear();
             }
+        }
+
+        private static void Arbol()
+        {
+            string opc = string.Empty;
+            var arbol = new Arbol();
+
+            while (opc != "4")
+            {
+                Console.Clear();
+                Console.WriteLine("1. Ingresar nodo al árbol binario");
+                Console.WriteLine("2. Consultar ramas de un Nodo");
+                Console.WriteLine("3. Contar nodos");
+                Console.WriteLine("4. Salir");
+                Console.Write("Opción: ");
+
+                opc = Console.ReadLine();
+
+                switch (opc)
+                {
+                    case "1":
+                        arbol.InsertarNodo();
+                        break;
+                    case "2":
+                        Console.Write("ingrese el valor del nodo: ");
+                        int n = 0;
+                        int.TryParse(Console.ReadLine(), out n);
+                        arbol.ConsultarRamas(n);
+                        break;
+                    case "3":
+                        arbol.ContarNodos();
+                        break;
+
+                    default: break;
+                }
+                Console.Clear();
+            }
+        }
+
+        private static void Agrupacion()
+        {
+            string opc = string.Empty;
+            var almacen = new Almacen();
+
+            while (opc != "3")
+            {
+                Console.Clear();
+                Console.WriteLine("1. Cargar archivo .json");
+                Console.WriteLine("2. Consultar Informe agrupado de ventas");
+                Console.WriteLine("3. Salir");
+                Console.Write("Opción: ");
+
+                opc = Console.ReadLine();
+
+                switch (opc)
+                {
+                    case "1":
+                        almacen.CargarVentas();
+                        break;
+                    case "2":
+                        almacen.AgruparVentas();
+                        break;
+
+                    default: break;
+                }
+                Console.Clear();
+            };
         }
     }
 }

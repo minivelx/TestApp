@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agrupacion\Almacen.cs" />
+    <Compile Include="Agrupacion\Registro.cs" />
+    <Compile Include="EstructuraDatos\ArbolBinario\Arbol.cs" />
+    <Compile Include="EstructuraDatos\ArbolBinario\Nodo.cs" />
     <Compile Include="EstructuraDatos\ListaEnlazada\Cola.cs" />
     <Compile Include="EstructuraDatos\ListaEnlazada\Persona.cs" />
     <Compile Include="Miscelanea\Ejercicio.cs" />
@@ -54,17 +61,19 @@
     <Compile Include="Miscelanea\Ejercicio5.cs" />
     <Compile Include="Miscelanea\Ejercicio6.cs" />
     <Compile Include="Miscelanea\Logica.cs" />
+    <Compile Include="Postfix\CPostfix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Token\ValidadorToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="archivo.json" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Numeros.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EstructuraDatos\ArbolBinario\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

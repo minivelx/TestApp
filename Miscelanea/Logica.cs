@@ -50,7 +50,33 @@ namespace TestApp.Miscelanea
         }
 
         //Ejercicio 5
+        public static decimal CalcularSerieExponencial(decimal x, int n)
+        {
+            if (n == 0) return 1;
+            return (decimal)Math.Pow((double)x,n)/ Factorial(n) + CalcularSerieExponencial(x, n-1);
+        }
 
+        public static int CalcularValorN(decimal x, decimal E)
+        {
+            int n = 1;
+            while( Eval(x, n) >= E )
+            {
+                n++;
+            }
+
+            return n;
+        }
+
+        private static decimal Eval(decimal x,  int n)
+        {
+            return (decimal)Math.Pow((double)x, n) / n;
+        }
+
+        public static int Factorial(int n)
+        {
+            if (n == 1 || n == 0) return 1;
+            return n * Factorial(n - 1); 
+        }
 
         //Ejercicio 6
         public static int CalcularValorSerieFibonacci(int n)
@@ -58,7 +84,6 @@ namespace TestApp.Miscelanea
             if (n == 0 || n == 1) return 1;
 
             return (CalcularValorSerieFibonacci(n - 1) + CalcularValorSerieFibonacci(n - 2));
-        }
-
+        }       
     }
 }
