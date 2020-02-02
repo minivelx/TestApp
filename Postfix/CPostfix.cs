@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace TestApp.Postfix
 {
@@ -15,42 +17,47 @@ namespace TestApp.Postfix
 
         public void EvaluarExpresion()
         {
-            expresion = "4*2-2/4*67^2";
+            string infixExp = "4*2-2/4*67^2";
+            expresion = InfixToPostfix(infixExp);
 
-            int n, a, b, r;
-            n = a = b = r = 0;
+            decimal a, b, r;
+            a = b = r = 0;           
 
-            char caracter = ' ';
+            var arrayexpresion = expresion.Split(' ');
 
-            for(n = 0; n < expresion.Length; n++)
+            for(int i = 0; i < arrayexpresion.Length; i++)
             {
-                caracter = expresion[n];
+                var c = arrayexpresion[i];
 
-                if(caracter >= '0' && caracter <= '9')
-                {
-                    stack.Push(int.Parse(caracter.ToString()));
-                }
+                decimal numero = 0;
+
+                if (decimal.TryParse(c, out numero))                
+                    stack.Push(numero);                
                 else
                 {
-                    b = (int) stack.Pop();
-                    a = (int)stack.Pop();
+                    b = (decimal) stack.Pop();
+                    a = (decimal)stack.Pop();
 
-                    switch(caracter)
+                    switch(c)
                     {
-                        case '+':
+                        case "+":
                             r = a + b;
                             stack.Push(r);
                             break;
-                        case '-':
+                        case "-":
                             r = a - b;
                             stack.Push(r);
                             break;
-                        case '/':
+                        case "/":
                             r = a / b;
                             stack.Push(r);
                             break;
-                        case '*':
+                        case "*":
                             r = a * b;
+                            stack.Push(r);
+                            break;
+                        case "^":
+                            r = (decimal) Math.Pow((double) a, (double) b);
                             stack.Push(r);
                             break;
                     }
@@ -58,9 +65,53 @@ namespace TestApp.Postfix
 
             }
 
-            var res = stack.ToString();
-
+            Console.WriteLine(string.Format("Solucón : {0}", r));
+            Console.ReadLine();
         }
 
+        public string InfixToPostfix(string infix)
+        {
+            string result = string.Empty;
+            Stack<string> stack = new Stack<string>();
+
+            var arrayExpresion = infix.Replace("+"," + ")
+                                      .Replace("-", " - ")
+                                      .Replace("*", " * ")
+                                      .Replace("/", " / ")
+                                      .Replace("^", " ^ ")
+                                      .Split(' ');
+
+            for (int i = 0; i < arrayExpresion.Length; ++i)
+            {
+                var c = arrayExpresion[i];
+                int numero = 0;
+
+                if (int.TryParse(c, out numero))
+                    result += c + " ";
+                else
+                {
+                    while (stack.Count != 0 && Jerarquia(c[0]) <= Jerarquia(stack.Peek()[0]))
+                        result += stack.Pop() + " ";
+                    stack.Push(c);
+                }
+            }
+
+            while (stack.Count != 0)
+                result += stack.Pop() + " ";
+
+            return result.Trim();
+        }
+
+        public int Jerarquia(char ch)
+        {
+            if (ch == '+' || ch == '-')
+                return 1;
+            else if (ch == '*' || ch == '/')
+                return 2;
+            else if (ch == '^')
+                return 3;
+            else
+                return -1;
+        }
     }
 }
